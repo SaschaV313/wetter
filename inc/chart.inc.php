@@ -1,5 +1,10 @@
 <script src="../code/highcharts.js"></script>
+<script src="../code/modules/windbarb.js"></script>
+<script src="../code/modules/pattern-fill.js"></script>
+<script src="../code/modules/exporting.js"></script>
+<script src="../code/modules/accessibility.js"></script>
 <script type="text/javascript" src="../code/themes/dark-unica.js"></script>
+<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
 
 <script>
 function Meteogram(xml, container) {
@@ -113,7 +118,7 @@ Meteogram.prototype.drawBlocksForWindArrows = function (chart) {
  * Get the title based on the XML data
  */
 Meteogram.prototype.getTitle = function () {
-    return 'Meteogram for ' + this.xml.querySelector('location name').textContent +
+    return 'Vorhersage für ' + this.xml.querySelector('location name').textContent +
         ', ' + this.xml.querySelector('location country').textContent;
 };
 
@@ -425,7 +430,7 @@ Meteogram.prototype.parseYrData = function () {
     // XML, generated on the server by running PHP simple_load_xml and
     // converting it to JavaScript by json_encode.
     Highcharts.each(
-        forecast.querySelectorAll('tabular time'),
+        forecast.querySelectorAll('time'),
         function (time, i) {
             // Get the times - only Safari can't parse ISO8601 so we need to do
             // some replacements
@@ -517,24 +522,28 @@ Meteogram.prototype.parseYrData = function () {
 
 // On DOM ready...
 
-// Set the hash to the yr.no URL we want to parse
-var place,
-    url;
-if (!location.hash) {
-    place = 'Germany/Saarland/Quierschied';
+// Get the data
 
-    location.hash = 'https://www.yr.no/place/' + place + '/forecast_hour_by_hour.xml';
-}
-
-url = location.hash.substr(1);
 $.ajax({
     dataType: 'xml',
-    url: url === 'https://www.yr.no/place/Germany/Saarland/Quierschied/forecast_hour_by_hour.xml',
+    url: 'forecast_hour_by_hour.xml',
     success: function (xml) {
-        window.meteogram = new Meteogram(xml, 'container');
+        window.meteogram = new Meteogram(xml, 'container_yr');
     },
     error: Meteogram.prototype.error
 });
+
+
+$.ajax({
+    dataType: 'xml',
+    url: 'forecast.xml',
+    success: function (xml) {
+        window.meteogram = new Meteogram(xml, 'container_ow');
+    },
+    error: Meteogram.prototype.error
+});
+
 </script>
 
-<div id="container" style="width:640px; height:480px;"></div>
+<div id="container_ow">OW</div>
+<div id="container_yr">YR</div>
