@@ -1,0 +1,90 @@
+/* CSS Document */
+/* Layout */
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 2em;
+  height: 90vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: middle;
+      -ms-flex-align: middle;
+          align-items: middle;
+}
+
+.clockbox,
+#clock {
+  width: 100%;
+}
+
+/* Clock styles */
+.face {
+  fill: #E41C19;
+}
+
+.second-arm {
+  fill: none;
+  stroke: #E41C19;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+}
+
+.minute-arm {
+  fill: none;
+  stroke: #E41C19;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+}
+
+.hour-arm {
+  fill: none;
+  stroke: #E41C19;
+  stroke-width: 12;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+}
+
+/* Transparent box ensuring arms center properly. */
+.sizing-box {
+  fill: none;
+}
+
+/* Make all arms rotate around the same center point. */
+/* Optional: Use transition for animation. */
+#hour,
+#minute,
+#second {
+  -webkit-transform-origin: 300px 300px;
+          transform-origin: 300px 300px;
+  /*transition: transform .5s ease-in-out;*/
+}
+
+/* Kalender */
+.monat {
+  color: #E41C19;
+  font-weight: bold;
+  font-size: 120%;
+}
+
+.tage {
+  font-style: italic;
+}
+
+.tag {
+  color: #E41C19;
+}
+
+.heute {
+  background-color: #E41C19;
+  color: black;
+  font-weight: bold;
+}
+
+.sonntag {
+  font-weight: bold;
+}
+/*# sourceMappingURL=clock.css.map */

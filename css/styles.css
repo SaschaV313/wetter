@@ -1,0 +1,11 @@
+body, p, table {
+	background: #000;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 115%;
+	color: red;
+}
+
+.align-center {
+    margin-left: auto;
+    margin-right: auto;
+}

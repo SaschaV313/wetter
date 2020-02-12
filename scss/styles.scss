@@ -1,0 +1,33 @@
+/* CSS Document */
+$color: #ff0000;
+
+body, p, table {
+	background: #000;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 115%;
+	color: $color;
+	margin: 0;
+	padding: 0;
+}
+
+.align-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table-center {
+	width: 100%;
+	vertical-align: middle;
+	margin: auto;
+}
+
+.h50{
+	height: calc(50vh - 10px);
+}
+
+.update{
+	font-size: x-small;
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+}
