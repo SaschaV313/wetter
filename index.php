@@ -14,6 +14,11 @@
 	<!--[if IE]><script type="text/javascript" src="js/excanvas.js"></script><![endif]-->
 	<script type="text/javascript" src="js/coolclock.js"></script>
 	<script type="text/javascript" src="js/moreskins.js"></script>
+	<script src="code/highcharts.js"></script>
+	<script type="text/javascript" src="code/themes/dark-unica.js"></script>
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 	<script>
 		CoolClock.config.skins = {
 			mySkin: {
@@ -174,7 +179,6 @@ foreach($forecast['list'] as $data)
 	echo "</td>";
 */
 	$dt = $data['dt'];
-	$tabelle['utc'] = $dt;
 	$tabelle['tag'][$dt] = date("d.m.", $data['dt']);
 	$tabelle['zeit'][$dt] = date("H:i", $data['dt']);
 	$tabelle['symbol'][$dt] = "wi wi-owm-".$prefix.$data['weather'][0]['id'];
@@ -191,6 +195,12 @@ echo "<!--";
 print_r($tabelle);
 echo "!-->";
 ?>
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+        //var myChart = Highcharts.chart('container', <?php echo join($tabelle['temp'],',')?>);
+    });
+</script>
+<div id='container'></div>
 			</td>
 		</tr>
 	</table>
