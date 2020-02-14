@@ -83,14 +83,7 @@
 				<canvas id="clk1" class="CoolClock:mySkin:175"></canvas>
 			</td>
 			<td align=center>
-				<script type="text/javascript">
-					Kalender(dm, dj);
-				</script>
-			</td>
-		</tr>
-		<tr class="h50">
-			<td align=center>
-				<?php
+			<?php
   $json_string = 'http://api.openweathermap.org/data/2.5/weather?id=2851337&APPID=f7a8b11a00cb27d9f234e7620d8850e0&lang=de&units=metric';
   $jsondata = file_get_contents($json_string);
   $obj = json_decode($jsondata, true);
@@ -133,10 +126,14 @@
 					</tr>
 				</table>
 			</td>
+		</tr>
+		<tr class="h50">
 			<td align=center>
-  				<!--
-				<div id="wcom-d9f0406d0a5b271a3a41dba60d4eea5a" class="wcom-default w300x250" style="border: 0px none; background-color: transparent; border-radius: 0px; color: rgb(255, 0, 0);"><link rel="stylesheet" href="//cs3.wettercomassets.com/woys/5/css/w.css" media="all"><div class="wcom-city"><a style="color: rgb(255, 0, 0);" href="https://www.wetter.com/deutschland/quierschied/DE0008466.html" target="_blank" rel="nofollow" aria-label="Wetter Berlin" title="Wetter Quierschied">Wetter Quierschied</a></div><div id="wcom-d9f0406d0a5b271a3a41dba60d4eea5a-weather"></div><script type="text/javascript" src="//cs3.wettercomassets.com/woys/5/js/w.js"></script><script type="text/javascript">_wcomWidget({id: 'wcom-d9f0406d0a5b271a3a41dba60d4eea5a',location: 'DE0008466',format: '300x250',type: 'summary'});</script></div>
-				!-->
+			<script type="text/javascript">
+					Kalender(dm, dj);
+				</script>
+			</td>
+			<td>
 				<?php include('chart.inc.php'); ?>
 			</td>
 		</tr>
