@@ -132,77 +132,16 @@
 						</td>
 					</tr>
 				</table>
-				<div class="update">Letztes Update: <?php echo date("d.m.y H:i",$now) ?></div>
 			</td>
-			<td>
-				<?php
-  $json_string = 'http://api.openweathermap.org/data/2.5/forecast?id=2851337&APPID=f7a8b11a00cb27d9f234e7620d8850e0&lang=de&units=metric';
-  $jsondata = file_get_contents($json_string);
-  $forecast = json_decode($jsondata, true);
-  echo "<!--";
-  print_r($forecast['list']);
-  echo "!-->";
-?>
-				<div id="wcom-00d7fed59a314571e5bbba68b3d80c2e" class="wcom-default w300x250 align-center"
-					style="border: 0px none; background-color: transparent; border-radius: 0px; color: rgb(255, 0, 0);">
-					<link rel="stylesheet" href="//cs3.wettercomassets.com/woys/5/css/w.css" media="all">
-					<div class="wcom-city"><a style="color: rgb(255, 0, 0);"
-							href="https://www.wetter.com/deutschland/quierschied/fischbach/DE0008466002.html"
-							target="_blank" rel="nofollow" title="Wetter Fischbach">Wetter Fischbach</a></div>
-					<div id="wcom-00d7fed59a314571e5bbba68b3d80c2e-weather"></div>
-					<script type="text/javascript" src="//cs3.wettercomassets.com/woys/5/js/w.js"></script>
-					<script type="text/javascript">
-						_wcomWidget({
-							id: 'wcom-00d7fed59a314571e5bbba68b3d80c2e',
-							location: 'DE0008466002',
-							format: '300x250',
-							type: 'spaces'
-						});
-					</script>
-				</div>
-				<?php
-echo "<table><tr>";
-$tabelle=array();
-foreach($forecast['list'] as $data)
-{
-	$prefix=($data['sys']['pod']=='d')?"day-":"night-";
-/*
-	echo "<td style='font-size: 42%;'>";
-	echo "<div>".date("d.m.", $data['dt'])."<br />".date("H:i", $data['dt'])."</div>";
-	echo "<div><i class='wi wi-owm-".$prefix.$data['weather'][0]['id']."'></i></div>";
-	echo "<div><i class='wi wi-thermometer'></i> max. ".$data['main']['temp_max']."&nbsp;&deg;C</div>";
-	echo "<div><i class='wi wi-thermometer'></i> min. ".$data['main']['temp_min']."&nbsp;&deg;C</div>";
-	echo "<div><i class='wi wi-barometer'></i> ".$data['main']['pressure']."&nbsp;hPa</div>";
-	echo "<div><i class='wi wi-humidity'></i> ".$data['main']['humidity']."&nbsp;%</div>";
-	echo "<div><i class='wi wi-strong-wind'></i> ".$data['wind']['speed']."&nbsp;m/sec</div>";
-	echo "<div><i class='wi wi-wind-direction'></i> ".$data['wind']['deg']."&deg;</div>";
-	echo "</td>";
-*/
-	$dt = $data['dt'];
-	$tabelle['tag'][$dt] = date("d.m.", $data['dt']);
-	$tabelle['zeit'][$dt] = date("H:i", $data['dt']);
-	$tabelle['symbol'][$dt] = "wi wi-owm-".$prefix.$data['weather'][0]['id'];
-	$tabelle['temp'][$dt] = $data['main']['temp'];
-	$tabelle['tmax'][$dt] = $data['main']['temp_max'];
-	$tabelle['tmin'][$dt] = $data['main']['temp_min'];
-	$tabelle['druck'][$dt] = $data['main']['pressure'];
-	$tabelle['feucht'][$dt] = $data['main']['humidity'];
-	$tabelle['wstark'][$dt] = $data['wind']['speed'];
-	$tabelle['wricht'][$dt] = $data['wind']['deg'];
-}
-echo "</tr></table>";
-echo "<!--";
-print_r($tabelle);
-echo "!-->";
-?>
-<script>
-	document.addEventListener('DOMContentLoaded', function () {
-        //var myChart = Highcharts.chart('container', <?php echo join($tabelle['temp'],',')?>);
-    });
-</script>
-<div id='container'></div>
+			<td align=center>
+  				<!--
+				<div id="wcom-d9f0406d0a5b271a3a41dba60d4eea5a" class="wcom-default w300x250" style="border: 0px none; background-color: transparent; border-radius: 0px; color: rgb(255, 0, 0);"><link rel="stylesheet" href="//cs3.wettercomassets.com/woys/5/css/w.css" media="all"><div class="wcom-city"><a style="color: rgb(255, 0, 0);" href="https://www.wetter.com/deutschland/quierschied/DE0008466.html" target="_blank" rel="nofollow" aria-label="Wetter Berlin" title="Wetter Quierschied">Wetter Quierschied</a></div><div id="wcom-d9f0406d0a5b271a3a41dba60d4eea5a-weather"></div><script type="text/javascript" src="//cs3.wettercomassets.com/woys/5/js/w.js"></script><script type="text/javascript">_wcomWidget({id: 'wcom-d9f0406d0a5b271a3a41dba60d4eea5a',location: 'DE0008466',format: '300x250',type: 'summary'});</script></div>
+				!-->
+				<?php include('chart.inc.php'); ?>
 			</td>
 		</tr>
 	</table>
+	<div class="update">OWM Update: <?php echo date("d.m.y H:i",$now); ?></div>
+	<div class="fc-update">YR.no Update: <?php echo $forecast_update; ?></div>
 </body>
 </html>

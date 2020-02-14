@@ -22,42 +22,12 @@ link to the specified URL.-->
     <link id="longTermForecast" url="http://www.yr.no/place/Germany/Saarland/Quierschied/long" />
   </links>
   <meta>
-    <lastupdate>2020-02-14T09:54:19</lastupdate>
-    <nextupdate>2020-02-14T16:05:50</nextupdate>
+    <lastupdate>2020-02-14T09:55:00</lastupdate>
+    <nextupdate>2020-02-14T15:56:00</nextupdate>
   </meta>
   <sun rise="2020-02-14T07:43:57" set="2020-02-14T17:49:06" />
   <forecast>
     <tabular>
-      <time from="2020-02-14T11:00:00" to="2020-02-14T12:00:00">
-        <!-- Valid from 2020-02-14T11:00:00 to 2020-02-14T12:00:00 -->
-        <symbol number="5" numberEx="40" name="Light rain showers" var="40d" />
-        <precipitation value="0.2" />
-        <!-- Valid at 2020-02-14T11:00:00 -->
-        <windDirection deg="259.0" code="W" name="West" />
-        <windSpeed mps="5.1" name="Gentle breeze" />
-        <temperature unit="celsius" value="6" />
-        <pressure unit="hPa" value="1023.0" />
-      </time>
-      <time from="2020-02-14T12:00:00" to="2020-02-14T13:00:00">
-        <!-- Valid from 2020-02-14T12:00:00 to 2020-02-14T13:00:00 -->
-        <symbol number="4" numberEx="4" name="Cloudy" var="04" />
-        <precipitation value="0.1" />
-        <!-- Valid at 2020-02-14T12:00:00 -->
-        <windDirection deg="269.9" code="W" name="West" />
-        <windSpeed mps="4.7" name="Gentle breeze" />
-        <temperature unit="celsius" value="7" />
-        <pressure unit="hPa" value="1023.2" />
-      </time>
-      <time from="2020-02-14T13:00:00" to="2020-02-14T14:00:00">
-        <!-- Valid from 2020-02-14T13:00:00 to 2020-02-14T14:00:00 -->
-        <symbol number="4" numberEx="4" name="Cloudy" var="04" />
-        <precipitation value="0" />
-        <!-- Valid at 2020-02-14T13:00:00 -->
-        <windDirection deg="276.8" code="W" name="West" />
-        <windSpeed mps="5.6" name="Moderate breeze" />
-        <temperature unit="celsius" value="7" />
-        <pressure unit="hPa" value="1023.3" />
-      </time>
       <time from="2020-02-14T14:00:00" to="2020-02-14T15:00:00">
         <!-- Valid from 2020-02-14T14:00:00 to 2020-02-14T15:00:00 -->
         <symbol number="4" numberEx="4" name="Cloudy" var="04" />
@@ -507,6 +477,36 @@ link to the specified URL.-->
         <windSpeed mps="7.7" name="Moderate breeze" />
         <temperature unit="celsius" value="10" />
         <pressure unit="hPa" value="1014.2" />
+      </time>
+      <time from="2020-02-16T11:00:00" to="2020-02-16T12:00:00">
+        <!-- Valid from 2020-02-16T11:00:00 to 2020-02-16T12:00:00 -->
+        <symbol number="4" numberEx="4" name="Cloudy" var="04" />
+        <precipitation value="0" />
+        <!-- Valid at 2020-02-16T11:00:00 -->
+        <windDirection deg="214.9" code="SW" name="Southwest" />
+        <windSpeed mps="6.8" name="Moderate breeze" />
+        <temperature unit="celsius" value="11" />
+        <pressure unit="hPa" value="1014.0" />
+      </time>
+      <time from="2020-02-16T12:00:00" to="2020-02-16T13:00:00">
+        <!-- Valid from 2020-02-16T12:00:00 to 2020-02-16T13:00:00 -->
+        <symbol number="3" numberEx="3" name="Partly cloudy" var="03d" />
+        <precipitation value="0" />
+        <!-- Valid at 2020-02-16T12:00:00 -->
+        <windDirection deg="209.9" code="SSW" name="South-southwest" />
+        <windSpeed mps="7.4" name="Moderate breeze" />
+        <temperature unit="celsius" value="12" />
+        <pressure unit="hPa" value="1013.5" />
+      </time>
+      <time from="2020-02-16T13:00:00" to="2020-02-16T14:00:00">
+        <!-- Valid from 2020-02-16T13:00:00 to 2020-02-16T14:00:00 -->
+        <symbol number="3" numberEx="3" name="Partly cloudy" var="03d" />
+        <precipitation value="0" />
+        <!-- Valid at 2020-02-16T13:00:00 -->
+        <windDirection deg="208.2" code="SSW" name="South-southwest" />
+        <windSpeed mps="7.0" name="Moderate breeze" />
+        <temperature unit="celsius" value="12" />
+        <pressure unit="hPa" value="1012.7" />
       </time>
     </tabular>
   </forecast>

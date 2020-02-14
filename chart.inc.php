@@ -1,12 +1,11 @@
 <script src="code/highcharts.js"></script>
 <script src="code/modules/windbarb.js"></script>
 <script src="code/modules/pattern-fill.js"></script>
-<script src="code/modules/exporting.js"></script>
 <script src="code/modules/accessibility.js"></script>
-<script type="text/javascript" src="code/themes/dark-unica.js"></script>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <?php
 include('get_forecast.inc.php');
+//echo $forecast_update;
 ?>
 <script>
 function Meteogram(xml, container) {
@@ -137,7 +136,8 @@ Meteogram.prototype.getChartOptions = function () {
             marginRight: 40,
             marginTop: 50,
             plotBorderWidth: 1,
-            height: 310,
+            backgroundColor: '#000000',
+            height: 360,
             alignTicks: false,
             scrollablePlotArea: {
                 minWidth: 720

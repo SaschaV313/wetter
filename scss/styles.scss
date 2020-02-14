@@ -21,13 +21,20 @@ body, p, table {
 	margin: auto;
 }
 
-.h50{
+.h50 {
 	height: calc(50vh - 10px);
 }
 
-.update{
+.update {
 	font-size: x-small;
 	position: absolute;
 	left: 10px;
+	bottom: 10px;
+}
+
+.fc-update {
+	font-size: x-small;
+	position: absolute;
+	right: 10px;
 	bottom: 10px;
 }
