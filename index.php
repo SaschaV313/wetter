@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Wetterstation</title>
 	<meta http-equiv="refresh" content="600">
+	<link rel="shortcut icon" href="favicon.ico">
 	<link href="css/styles.min.css" rel="stylesheet">
 	<link href="css/clock.css" rel="stylesheet">
 	<link href="css/weather-icons.min.css" rel="stylesheet" type="text/css">
