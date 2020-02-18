@@ -14,8 +14,6 @@
 	<!--[if IE]><script type="text/javascript" src="js/excanvas.js"></script><![endif]-->
 	<script type="text/javascript" src="js/coolclock.js"></script>
 	<script type="text/javascript" src="js/moreskins.js"></script>
-	<script src="code/highcharts.js"></script>
-	<script type="text/javascript" src="code/themes/dark-unica.js"></script>
 	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 

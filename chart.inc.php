@@ -1,4 +1,5 @@
 <script src="code/highcharts.js"></script>
+<script type="text/javascript" src="code/themes/dark-unica.js"></script>
 <script src="code/modules/windbarb.js"></script>
 <script src="code/modules/pattern-fill.js"></script>
 <script src="code/modules/accessibility.js"></script>
