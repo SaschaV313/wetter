@@ -537,4 +537,4 @@ $.ajax({
 });
 </script>
 
-<div id="container_yr">YR</div>
+<div id="container_yr">Lade Daten ...</div>
