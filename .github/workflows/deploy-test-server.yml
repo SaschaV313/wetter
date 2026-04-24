@@ -1,0 +1,30 @@
+name: Deploy to test server
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy via SSH
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy files to test server
+        uses: easingthemes/ssh-deploy@v5.1.0
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_USER: ${{ secrets.SSH_USER }}
+          REMOTE_PORT: ${{ secrets.SSH_PORT }}
+          SOURCE: ./
+          TARGET: ${{ secrets.SSH_TARGET_DIR }}
+          ARGS: -rlgoDzvc --delete
+          EXCLUDE: >-
+            .git,
+            .github,
+            .vscode,
+            README.md,
+            LICENSE
