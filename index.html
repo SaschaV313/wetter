@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="de" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Responsives Wetter-Dashboard für ein 10-Zoll-Display und kleinere Endgeräte.">
+  <title>Wetterstation Dashboard</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9Oer+R4fRf4gJrA8WnYY2Q3F6T4BzN2T7oVJq4JgA5K6M" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+  <main class="container-fluid dashboard-shell py-3 py-lg-4">
+    <header class="dashboard-header rounded-4 p-3 p-lg-4 mb-3 mb-lg-4">
+      <div class="row g-3 align-items-center">
+        <div class="col-12 col-md">
+          <p class="text-uppercase text-info fw-semibold small mb-1">Wetterstation</p>
+          <h1 class="display-6 fw-bold mb-1">Saarbrücken</h1>
+          <p class="text-secondary mb-0" id="lastUpdated">Zuletzt aktualisiert: --:--</p>
+        </div>
+        <div class="col-12 col-md-auto">
+          <form class="d-flex gap-2" role="search" aria-label="Ort suchen">
+            <label class="visually-hidden" for="locationSearch">Ort</label>
+            <input class="form-control form-control-lg" id="locationSearch" type="search" placeholder="Ort suchen" autocomplete="off">
+            <button class="btn btn-info btn-lg" type="submit">Suchen</button>
+          </form>
+        </div>
+      </div>
+    </header>
+
+    <section class="row g-3 g-lg-4 mb-3 mb-lg-4" aria-label="Aktuelle Wetterdaten">
+      <div class="col-12 col-lg-5 col-xxl-4">
+        <article class="card weather-card h-100 border-0 rounded-4">
+          <div class="card-body p-4">
+            <div class="d-flex justify-content-between align-items-start gap-3">
+              <div>
+                <p class="text-uppercase text-secondary fw-semibold small mb-2">Aktuell</p>
+                <div class="current-temp lh-1" id="currentTemperature">--°</div>
+                <p class="fs-4 mb-0" id="currentCondition">Wetterdaten laden</p>
+              </div>
+              <div class="weather-symbol" aria-hidden="true">☁️</div>
+            </div>
+            <hr class="my-4">
+            <div class="row g-3 text-center text-sm-start">
+              <div class="col-6 col-sm-3 col-lg-6 col-xl-3">
+                <p class="metric-label mb-1">Gefühlt</p>
+                <p class="metric-value mb-0" id="feelsLike">--°</p>
+              </div>
+              <div class="col-6 col-sm-3 col-lg-6 col-xl-3">
+                <p class="metric-label mb-1">Wind</p>
+                <p class="metric-value mb-0" id="windSpeed">-- km/h</p>
+              </div>
+              <div class="col-6 col-sm-3 col-lg-6 col-xl-3">
+                <p class="metric-label mb-1">Regen</p>
+                <p class="metric-value mb-0" id="rainChance">--%</p>
+              </div>
+              <div class="col-6 col-sm-3 col-lg-6 col-xl-3">
+                <p class="metric-label mb-1">Luft</p>
+                <p class="metric-value mb-0" id="humidity">--%</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-12 col-lg-7 col-xxl-8">
+        <article class="card h-100 border-0 rounded-4">
+          <div class="card-body p-4">
+            <div class="d-flex flex-column flex-sm-row justify-content-between gap-2 mb-3">
+              <div>
+                <p class="text-uppercase text-secondary fw-semibold small mb-1">Vorhersage</p>
+                <h2 class="h4 mb-0">Temperaturverlauf</h2>
+              </div>
+              <div class="btn-group" role="group" aria-label="Zeitraum wählen">
+                <button type="button" class="btn btn-outline-info active">24h</button>
+                <button type="button" class="btn btn-outline-info">3 Tage</button>
+                <button type="button" class="btn btn-outline-info">7 Tage</button>
+              </div>
+            </div>
+            <div class="chart-placeholder rounded-4 d-flex align-items-center justify-content-center" id="forecastChart">
+              <span class="text-secondary">HighCharts-Container</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="row g-3 g-lg-4" aria-label="Detailkarten">
+      <div class="col-12 col-md-6 col-xl-3">
+        <article class="card h-100 border-0 rounded-4">
+          <div class="card-body p-4">
+            <p class="text-uppercase text-secondary fw-semibold small mb-1">Heute</p>
+            <h2 class="h5">Tagesübersicht</h2>
+            <ul class="list-unstyled dashboard-list mb-0">
+              <li><span>Sonnenaufgang</span><strong id="sunrise">--:--</strong></li>
+              <li><span>Sonnenuntergang</span><strong id="sunset">--:--</strong></li>
+              <li><span>UV-Index</span><strong id="uvIndex">--</strong></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-3">
+        <article class="card h-100 border-0 rounded-4">
+          <div class="card-body p-4">
+            <p class="text-uppercase text-secondary fw-semibold small mb-1">Warnungen</p>
+            <h2 class="h5">Hinweise</h2>
+            <div class="alert alert-info mb-0" role="status" id="weatherAlert">
+              Keine aktuellen Wetterwarnungen.
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-3">
+        <article class="card h-100 border-0 rounded-4">
+          <div class="card-body p-4">
+            <p class="text-uppercase text-secondary fw-semibold small mb-1">Luftdruck</p>
+            <h2 class="h5">Trend</h2>
+            <p class="display-6 fw-bold mb-1" id="pressure">-- hPa</p>
+            <p class="text-secondary mb-0" id="pressureTrend">Trend noch nicht verfügbar.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-3">
+        <article class="card h-100 border-0 rounded-4">
+          <div class="card-body p-4">
+            <p class="text-uppercase text-secondary fw-semibold small mb-1">System</p>
+            <h2 class="h5">Status</h2>
+            <ul class="list-unstyled dashboard-list mb-0">
+              <li><span>API</span><strong id="apiStatus">offen</strong></li>
+              <li><span>Display</span><strong>responsive</strong></li>
+              <li><span>Layout</span><strong>Bootstrap 5</strong></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
