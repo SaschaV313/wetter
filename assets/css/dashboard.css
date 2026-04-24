@@ -1,0 +1,101 @@
+:root {
+  --dashboard-bg: #08111f;
+  --dashboard-surface: rgba(255, 255, 255, 0.075);
+  --dashboard-surface-strong: rgba(255, 255, 255, 0.12);
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(13, 202, 240, 0.18), transparent 28rem),
+    linear-gradient(135deg, #06101f 0%, var(--dashboard-bg) 55%, #101725 100%);
+}
+
+.dashboard-shell {
+  max-width: 1600px;
+}
+
+.dashboard-header,
+.card {
+  background: var(--dashboard-surface);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(18px);
+}
+
+.weather-card {
+  background: linear-gradient(145deg, rgba(13, 202, 240, 0.20), rgba(255, 255, 255, 0.08));
+}
+
+.current-temp {
+  font-size: clamp(4rem, 12vw, 9rem);
+  font-weight: 800;
+  letter-spacing: -0.08em;
+}
+
+.weather-symbol {
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1;
+}
+
+.metric-label {
+  color: var(--bs-secondary-color);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.metric-value {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 700;
+}
+
+.chart-placeholder {
+  min-height: clamp(18rem, 45vw, 32rem);
+  background:
+    linear-gradient(180deg, transparent 0 95%, rgba(255,255,255,.08) 95% 100%),
+    linear-gradient(90deg, transparent 0 95%, rgba(255,255,255,.08) 95% 100%),
+    var(--dashboard-surface-strong);
+  background-size: 100% 20%, 10% 100%, auto;
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.dashboard-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.dashboard-list li:last-child {
+  border-bottom: 0;
+}
+
+.dashboard-list span {
+  color: var(--bs-secondary-color);
+}
+
+@media (max-width: 575.98px) {
+  .dashboard-shell {
+    padding-inline: 0.75rem;
+  }
+
+  .dashboard-header,
+  .card .card-body {
+    padding: 1rem !important;
+  }
+
+  .btn-group {
+    width: 100%;
+  }
+
+  .btn-group .btn {
+    flex: 1 1 0;
+  }
+}
+
+@media (min-width: 992px) {
+  body {
+    overflow-x: hidden;
+  }
+}
