@@ -1,0 +1,70 @@
+:root {
+  --dashboard-bg: #080d14;
+  --dashboard-surface: rgba(255, 255, 255, 0.075);
+  --dashboard-surface-strong: rgba(255, 255, 255, 0.12);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(13, 202, 240, 0.18), transparent 28rem),
+    linear-gradient(135deg, #05080d 0%, var(--dashboard-bg) 60%, #111827 100%);
+}
+
+.dashboard-shell {
+  max-width: 1600px;
+}
+
+.dashboard-header,
+.dashboard-card {
+  background: var(--dashboard-surface);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(18px);
+}
+
+.dashboard-clock,
+.dashboard-svg-object {
+  display: block;
+  width: min(100%, 28rem);
+  aspect-ratio: 1;
+}
+
+.dashboard-clock svg,
+.dashboard-svg-object {
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+}
+
+.dashboard-calendar {
+  width: min(100%, 28rem);
+  min-height: 16rem;
+  overflow-x: auto;
+}
+
+.weather-widget {
+  width: min(100%, 22rem);
+  overflow-x: auto;
+}
+
+.weather-widget .wcom-default {
+  max-width: 100%;
+}
+
+@media (max-width: 575.98px) {
+  .dashboard-shell {
+    padding-inline: 0.75rem;
+  }
+
+  .dashboard-header,
+  .dashboard-card .card-body {
+    padding: 1rem !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .dashboard-card {
+    min-height: 100%;
+  }
+}
